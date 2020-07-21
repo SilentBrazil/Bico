@@ -1,3 +1,4 @@
+import 'package:bico/components/appbar_custom_return.dart';
 import 'package:flutter/material.dart';
 
 import 'home_view.dart';
@@ -11,13 +12,7 @@ class LoginValidationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        iconTheme: IconThemeData(
-          color: Theme.of(context).primaryColor,
-        ),
-        elevation: 0.0,
-      ),
+      appBar: AppBarCustomReturn(),
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(30),
@@ -51,6 +46,7 @@ class LoginValidationView extends StatelessWidget {
                       borderSide: BorderSide(
                           color: Theme.of(context).primaryColor),
                     ),
+                    counterText: "",
                     labelText: "Código",
                     hintText: "0000",
                     labelStyle: TextStyle(

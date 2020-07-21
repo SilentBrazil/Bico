@@ -38,6 +38,7 @@ class LoginView extends StatelessWidget {
                   controller: _telefone,
                   inputFormatters: [maskFormatter],
                   keyboardType: TextInputType.phone,
+                  maxLength: 20,
                   //initialValue: "+55",
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -50,6 +51,7 @@ class LoginView extends StatelessWidget {
                       borderSide:
                           BorderSide(color: Theme.of(context).primaryColor),
                     ),
+                    counterText: "",
                     labelText: "Telefone",
                     hintText: "+55 (00)000-0000",
                     labelStyle: TextStyle(
@@ -62,8 +64,6 @@ class LoginView extends StatelessWidget {
                     //print(value.length);
                     if (value.isEmpty) {
                       return 'Telefone Inexistente';
-                    } else if (value.length < 20) {
-                      return 'Número Inválido';
                     }
                     return null;
                   },
