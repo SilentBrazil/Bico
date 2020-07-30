@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "488381664768",
+    "firebase_url": "https://bico-silent.firebaseio.com",
+    "project_id": "bico-silent",
+    "storage_bucket": "bico-silent.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488381664768:android:f7973fb7b7585f888b12e5",
+        "android_client_info": {
+          "package_name": "br.com.bico"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488381664768-t631e4onmvnq6pffopjv0bv9tudrcj6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPda9nUuCZoI7MRob9eQDKLax4quSA4bU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488381664768-t631e4onmvnq6pffopjv0bv9tudrcj6k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "488381664768-oae28tp54jdu0krndmddhr5i1ajk5r6r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.silent.biquerapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488381664768:android:e1ba5185fab660d78b12e5",
+        "android_client_info": {
+          "package_name": "com.silent.biquerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488381664768-3egq28sgdtu82mvjoakpmmkbi0h5rqu1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.silent.biquerapp",
+            "certificate_hash": "e52ea948ad8eb3370c325822e60b1550052192ac"
+          }
+        },
+        {
+          "client_id": "488381664768-t631e4onmvnq6pffopjv0bv9tudrcj6k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPda9nUuCZoI7MRob9eQDKLax4quSA4bU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488381664768-t631e4onmvnq6pffopjv0bv9tudrcj6k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "488381664768-oae28tp54jdu0krndmddhr5i1ajk5r6r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.silent.biquerapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

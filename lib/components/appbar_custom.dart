@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
-class AppBarCustomReturn extends StatelessWidget implements PreferredSize{
+class AppBarCustom extends StatelessWidget implements PreferredSize{
+  final title;
+  final bool withBackButton;
+
+  const AppBarCustom({Key key, this.title, this.withBackButton}) : super(key:key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      title: title,
       backgroundColor: Colors.transparent,
+      automaticallyImplyLeading: (withBackButton == null ) ? true : withBackButton,
       iconTheme: IconThemeData(
         color: Theme.of(context).primaryColor,
       ),

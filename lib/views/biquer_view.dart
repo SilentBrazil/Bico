@@ -1,4 +1,8 @@
 import 'package:bico/beans/biquer.dart';
+import 'package:bico/components/appbar_custom.dart';
+import 'package:bico/components/card_comment.dart';
+import 'package:bico/components/card_image.dart';
+import 'package:bico/components/enddrawer.dart';
 import 'package:bico/components/logo_bico.dart';
 import 'package:bico/components/title_left.dart';
 import 'package:flutter/material.dart';
@@ -11,14 +15,17 @@ class BiquerView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: LogoBico(),
+      appBar: AppBarCustom(title: LogoBico()),
+      endDrawer: EndDrawer(),
+      /*appBar: AppBar(
+        title: LogoBico(
+        ),
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(
           color: Theme.of(context).primaryColor,
         ),
         elevation: 0.0,
-      ),
+      ),*/
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
@@ -33,7 +40,7 @@ class BiquerView extends StatelessWidget {
                       shape: BoxShape.circle,
                       image: new DecorationImage(
                         fit: BoxFit.cover,
-                        image: new NetworkImage(biquer.photo),
+                        image: new NetworkImage(biquer.photoUrl),
                       ),
                     ),
                   ),
@@ -106,18 +113,7 @@ class BiquerView extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: 3,
                 itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                    child: Container(
-                      width: 200,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: new NetworkImage(
-                                "https://picsum.photos/200/200") //site gera imagem dinamicamente"
-                            ),
-                      ),
-                    ),
-                  );
+                  return CardImage(image: "https://picsum.photos/200/200",);
                 },
               ),
             ),
@@ -130,34 +126,11 @@ class BiquerView extends StatelessWidget {
               child: ListView.builder(
                 itemCount: 1,
                 itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                        children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            Text(
-                              "Tomás aquino",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
-                              ),
-                            ),
-                            Text("  -  "),
-                            Text(
-                              "21/07/2020",
-                              style: TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
-                    ],
-                  ),
-                      ));
+                  return CardComment(
+                    client: "Tomás Aquino",
+                    comment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    date: "21/07/2020",
+                  );
                 },
               ),
             ),

@@ -27,7 +27,7 @@ class CardBiquer extends StatelessWidget {
                             shape: BoxShape.circle,
                             image: new DecorationImage(
                                 fit: BoxFit.cover,
-                                image: new NetworkImage(biquer.photo)))),
+                                image: new NetworkImage(biquer.photoUrl)))),
                     /*Text(
                         item,
                         style: TextStyle(

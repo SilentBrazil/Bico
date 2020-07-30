@@ -1,10 +1,13 @@
 import 'package:bico/beans/biquer.dart';
 import 'package:bico/beans/service.dart';
+import 'package:bico/components/appbar_custom.dart';
 import 'package:bico/components/card_biquer.dart';
 import 'package:bico/components/card_service.dart';
+import 'package:bico/components/enddrawer.dart';
 import 'package:bico/components/logo_bico.dart';
 import 'package:bico/components/title_left.dart';
 import 'package:bico/views/category_view.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -34,100 +37,25 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Firestore.instance.collection('Categories').getDocuments().then((value) {
+      value.documents.forEach((element) {
+        print(element.data);
+      });
+    });
     return Scaffold(
       //resizeToAvoidBottomInset: false,
       key: _scaffoldKey,
-      endDrawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            UserAccountsDrawerHeader(
-              accountName: Text("Bico",style: TextStyle(color: Colors.white)),
-              accountEmail: Text("bico@silent.com.br",style: TextStyle(color: Colors.white)),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor:
-                    Theme.of(context).platform == TargetPlatform.iOS
-                        ? Colors.white
-                        : Colors.white,
-                child: Text(
-                  "B",
-                  style: TextStyle(fontSize: 40.0),
-                ),
-              ),
-              /*child: Align(
-                alignment: Alignment.center,
-                child: Text(
-                  "Let's go BICO",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 28,
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-              ),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: <Color>[Colors.deepOrange, Colors.orangeAccent]),
-              ),*/
-            ),
-            ListTile(
-              //leading: Icon(Icons.category),
-              title: Text(
-                'Notificações',
-              ),
-            ),
-            ListTile(
-              title: Text("Seus serviços"),
-            ),
-            ListTile(
-              title: Text("Ajuda"),
-            ),
-            ListTile(
-              title: Text("Perfil"),
-            ),
-            ListTile(
-              title: Text("Configurações"),
-            ),
-          ],
-        ),
-      ),
+      appBar: AppBarCustom(title: LogoBico(),withBackButton: false,),
+      endDrawer: EndDrawer(),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              height: 220.0,
+              height: 120.0,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      margin: EdgeInsets.only(
-                        left: 15,
-                        top: 25,
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          LogoBico(),
-                          Spacer(),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 12),
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.menu,
-                                color: Theme.of(context).primaryColor,
-                              ),
-                              onPressed: () {
-                                print("your menu action here");
-                                _scaffoldKey.currentState.openEndDrawer();
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Container(
@@ -167,7 +95,7 @@ class HomeView extends StatelessWidget {
                       margin: EdgeInsets.only(
                         left: 15,
                         right: 15,
-                        top: 20,
+                        top: 5,
                       ),
                       child: Row(
                         children: [
@@ -296,7 +224,7 @@ class HomeView extends StatelessWidget {
               //margin: EdgeInsets.only(top: 270.0),
               //height: double.infinity,
               width: double.infinity,
-              height: 550,
+              height: 420,
               child: ListView.builder(
                 itemCount: biquerlist.length,
                 itemBuilder: (BuildContext context, int index) =>

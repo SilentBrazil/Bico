@@ -86,11 +86,13 @@ class LoginView extends StatelessWidget {
             _formKey.currentState.save();
             print(_telefone.text);
             Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => LoginValidationView(
-                          telefone: _telefone.text.replaceAll("+55 ", ""),
-                        )));
+              context,
+              MaterialPageRoute(
+                builder: (context) => LoginValidationView(
+                  telefone: _telefone.text.replaceAll("+55 ", ""),
+                ),
+              ),
+            );
           }
         },
         tooltip: 'next',

@@ -1,4 +1,4 @@
-import 'package:bico/components/appbar_custom_return.dart';
+import 'package:bico/components/appbar_custom.dart';
 import 'package:flutter/material.dart';
 
 import 'home_view.dart';
@@ -12,7 +12,7 @@ class LoginValidationView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustomReturn(),
+      appBar: AppBarCustom(),
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(30),
@@ -85,8 +85,12 @@ class LoginValidationView extends StatelessWidget {
         onPressed: () {
           if (_formKey.currentState.validate()) {
           _formKey.currentState.save();
-          Navigator.push(context, MaterialPageRoute(
-                builder: (context) => HomeView()));
+          Navigator. pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomeView(),
+            ),
+          );
           }
         },
         tooltip: 'next',
