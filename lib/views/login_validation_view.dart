@@ -85,12 +85,19 @@ class LoginValidationView extends StatelessWidget {
         onPressed: () {
           if (_formKey.currentState.validate()) {
           _formKey.currentState.save();
-          Navigator. pushReplacement(
+          /*Navigator. pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomeView(),
+            ),
+          )*/
+          Navigator. push(
             context,
             MaterialPageRoute(
               builder: (context) => HomeView(),
             ),
           );
+
           }
         },
         tooltip: 'next',

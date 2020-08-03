@@ -27,7 +27,7 @@ class CardBiquer extends StatelessWidget {
                             shape: BoxShape.circle,
                             image: new DecorationImage(
                                 fit: BoxFit.cover,
-                                image: new NetworkImage(biquer.photoUrl)))),
+                                image: new NetworkImage("https://vignette.wikia.nocookie.net/gta/images/7/70/CJ-GTASA.png/revision/latest/top-crop/width/360/height/450?cb=20170321232122&path-prefix=pt")))),
                     /*Text(
                         item,
                         style: TextStyle(
@@ -44,7 +44,7 @@ class CardBiquer extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              biquer.name,
+                              "biquer name",
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16,
@@ -55,7 +55,7 @@ class CardBiquer extends StatelessWidget {
                               child: Container(
                                 width: 260,
                                 child: Text(
-                                  biquer.category,
+                                  "biquer service",
                                 ),
                               ),
                             ),
@@ -68,7 +68,7 @@ class CardBiquer extends StatelessWidget {
                                     size: 16,
                                   ),
                                   Text(
-                                    biquer.rating.toString(),
+                                    "3,5",
                                     style: TextStyle(fontWeight: FontWeight.w600),
                                   ),
                                   Text("  |  "),
@@ -77,7 +77,7 @@ class CardBiquer extends StatelessWidget {
                                     size: 16,
                                   ),
                                   Text(
-                                    "${biquer.range.toString()} km",
+                                    "7.2 km",
                                     style: TextStyle(fontWeight: FontWeight.w600),
                                   ),
                                 ],

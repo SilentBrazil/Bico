@@ -40,7 +40,7 @@ class BiquerView extends StatelessWidget {
                       shape: BoxShape.circle,
                       image: new DecorationImage(
                         fit: BoxFit.cover,
-                        image: new NetworkImage(biquer.photoUrl),
+                        image: new NetworkImage("https://vignette.wikia.nocookie.net/gta/images/7/70/CJ-GTASA.png/revision/latest/top-crop/width/360/height/450?cb=20170321232122&path-prefix=pt"),
                       ),
                     ),
                   ),
@@ -53,7 +53,7 @@ class BiquerView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          biquer.name,
+                          "Nome",
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 22,
@@ -64,7 +64,7 @@ class BiquerView extends StatelessWidget {
                           child: Container(
                             width: 200,
                             child: Text(
-                              biquer.category,
+                              "Categoria",
                               style: TextStyle(fontSize: 18),
                             ),
                           ),
@@ -91,7 +91,7 @@ class BiquerView extends StatelessWidget {
                     size: 20,
                   ),
                   Text(
-                    biquer.rating.toString(),
+                    "3,5",
                     style: TextStyle(fontWeight: FontWeight.w600),
                   ),
                   Text("  |  "),
@@ -100,7 +100,7 @@ class BiquerView extends StatelessWidget {
                     size: 20,
                   ),
                   Text(
-                    "${biquer.range.toString()} km",
+                    "7.2 km",
                     style: TextStyle(fontWeight: FontWeight.w600),
                   ),
                 ],

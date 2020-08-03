@@ -1,11 +1,13 @@
+import 'package:bico/beans/job.dart';
 import 'package:bico/beans/service.dart';
+import 'package:bico/utils.dart';
 import 'package:bico/views/category_view.dart';
 import 'package:flutter/material.dart';
-
-class CardService extends StatelessWidget {
+class CardJob extends StatelessWidget {
   final Service service;
+  final Job job;
 
-  const CardService({Key key, this.service}) : super(key: key);
+  const CardJob({Key key, this.service, this.job}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +20,8 @@ class CardService extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => CategoryView(
-                category: service.name,
+              builder: (context) => ServiceView(
+                service: service,
               ),
             ),
           );
@@ -30,7 +32,7 @@ class CardService extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             image: DecorationImage(
               image: new NetworkImage(
-                  "https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"),
+                  service.posterImage),//"https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
               fit: BoxFit.cover,
             ),
           ),
@@ -43,7 +45,7 @@ class CardService extends StatelessWidget {
                   child: Align(
                     alignment: Alignment.topCenter,
                     child: Text(
-                      service.name,
+                      service.title,
                       textAlign: TextAlign.left,
                       style: TextStyle(
                           fontWeight: FontWeight.w600,
@@ -65,7 +67,7 @@ class CardService extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: Text(
-                          service.price.toString(),
+                          Utils.moneyText(job.price),
                           style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,

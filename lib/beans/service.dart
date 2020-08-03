@@ -1,17 +1,42 @@
-import 'package:bico/beans/job.dart';
+import 'job.dart';
 
-class Service{
+class Service {
   String key;
-  String title;
-  String subtitle;
-  String postImage;
-  String titleColor;
+  double averagePrice;
   double minPrice;
-  double averragePrice;
-  List<Job> jobs;
+  String posterImage;
+  String subtitle;
+  String title;
+  String titleColor;
 
-  String name;
-  double price;
+  Service(
+      {this.averagePrice,
+        this.minPrice,
+        this.posterImage,
+        this.subtitle,
+        this.title,
+        this.titleColor,
+        });
 
-  Service({this.name,this.price});
+  Service.fromMap(Map<String, dynamic> json, String key) {
+    this.key = key;
+    averagePrice = json['averagePrice'];
+    minPrice = json['minPrice'];
+    posterImage = json['posterImage'];
+    subtitle = json['subtitle'];
+    title = json['title'];
+    titleColor = json['titleColor'];
+  }
+
+  Map<String, dynamic> toMap() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['averagePrice'] = this.averagePrice;
+    data['minPrice'] = this.minPrice;
+    data['posterImage'] = this.posterImage;
+    data['subtitle'] = this.subtitle;
+    data['title'] = this.title;
+    data['titleColor'] = this.titleColor;
+
+    return data;
+  }
 }
