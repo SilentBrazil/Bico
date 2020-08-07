@@ -42,6 +42,9 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     // TODO: implement initState
     super.initState();
+  }
+
+  _loadView() async{
     BiquerModel biquerModel = BiquerModel();
     biquerModel.retrieveBiquer().then((biquers) {
       setState(() {
@@ -64,6 +67,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    _loadView();
     return Scaffold(
       //resizeToAvoidBottomInset: false,
       key: _scaffoldKey,

@@ -35,10 +35,13 @@ class _ServiceViewState extends State<ServiceView> {
   void initState() {
     // TODO: implement initState
     super.initState();
+  }
+
+  _loadView() async{
     BiquerModel biquerModel = BiquerModel();
-    biquerModel.retrieveBiquer().then((biquers) {
+    biquerModel.retrieveBiquerFromService(widget.service.key).then((biquers) {
       setState(() {
-        if(biquers != null){
+        if (biquers != null) {
           widget.biquerlist = biquers;
         }
       });
@@ -46,8 +49,10 @@ class _ServiceViewState extends State<ServiceView> {
       print("Erro: $e");
     });
   }
+
   @override
   Widget build(BuildContext context) {
+    _loadView();
     return Scaffold(
       //appBar: AppBarCustom(),
       endDrawer: EndDrawer(),
@@ -80,9 +85,10 @@ class _ServiceViewState extends State<ServiceView> {
         },
         body: ListView.builder(
           itemCount: widget.biquerlist.length,
-          itemBuilder: (context, index) => CardBiquer(
-            biquer: widget.biquerlist[index]
-          ),
+          itemBuilder: (context, index) =>
+              CardBiquer(
+                  biquer: widget.biquerlist[index]
+              ),
         ),
       ),
     );

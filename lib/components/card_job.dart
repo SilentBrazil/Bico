@@ -1,8 +1,9 @@
 import 'package:bico/beans/job.dart';
 import 'package:bico/beans/service.dart';
 import 'package:bico/utils.dart';
-import 'package:bico/views/category_view.dart';
+import 'package:bico/views/service_view.dart';
 import 'package:flutter/material.dart';
+
 class CardJob extends StatelessWidget {
   final Service service;
   final Job job;
@@ -31,52 +32,51 @@ class CardJob extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             image: DecorationImage(
-              image: new NetworkImage(
-                  service.posterImage),//"https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+              image: new NetworkImage(service.posterImage),
+              //"https://images.unsplash.com/photo-1504610926078-a1611febcad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
               fit: BoxFit.cover,
             ),
           ),
-          child: Container(
-            margin: EdgeInsets.only(top: 10),
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Align(
-                    alignment: Alignment.topCenter,
+          child: Stack(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Text(
+                    service.title,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                        fontSize: 20),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                child: Container(
+                  //color: Colors.white70,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      topRight: Radius.circular(10),
+                    ),
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
                     child: Text(
-                      service.title,
-                      textAlign: TextAlign.left,
+                      Utils.moneyText(job.price),
                       style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
                           fontSize: 20),
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Container(
-                      //color: Colors.white70,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white70
-                    ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Text(
-                          Utils.moneyText(job.price),
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
-                        ),
-                      ),
-                    ),
-                  ),
-                  /*child: RichText(
+                /*child: RichText(
                       text: new TextSpan(
                         // Note: Styles for TextSpans must be explicitly defined.
                         // Child text spans will inherit styles from parent
@@ -93,9 +93,8 @@ class CardJob extends StatelessWidget {
                         ],
                       ),
                     ),*/
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
